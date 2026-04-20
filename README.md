@@ -122,9 +122,9 @@ An interactive web experience celebrating Matariki, the Māori New Year.
 
 ---
 
-## Tools for AI Agent Development
+## Tools 
 
-Projects in this section are libraries, frameworks, and tooling that help *build* AI coding agents — not the agents themselves, but the infrastructure around them.
+Projects in this section are libraries, frameworks, and tooling that help creators.
 
 ---
 
