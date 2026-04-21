@@ -147,6 +147,8 @@ Assemble a party of AI advisors with genuinely different perspectives.
 
 ### Machine Dream
 
+![Machine Dream](screenshots/machine-dream.jpg)
+
 A continuous AI cognition platform that lets models learn from experience and consolidate knowledge across sessions.
 
 **Description:** Uses Sudoku as a research testbed to implement a learning loop where AI plays puzzles, makes mistakes, "dreams" (consolidates experiences into patterns), and improves over time — with no external hints or deterministic fallbacks. Implements the GRASP Loop (Generate → Review → Absorb → Synthesize → Persist) with three clustering algorithms: FastCluster, DeepCluster, and LLMCluster.
