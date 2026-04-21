@@ -84,6 +84,15 @@
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     margin: 0 0 0.25rem;
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+  header.site h1 img.logo {
+    height: 1em;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
   }
   header.site p.lead {
     margin: 0;
@@ -194,11 +203,6 @@
     object-fit: cover;
     display: block;
   }
-  article.card .thumb.placeholder {
-    color: var(--muted);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
   article.card .body {
     padding: 1rem 1.1rem 1.1rem;
     display: flex;
@@ -288,7 +292,7 @@
 <div class="page">
   <header class="site">
     <div>
-      <h1>Agentics NZ Showcase</h1>
+      <h1><img class="logo" src="screenshots/agentics-logo.png" alt="" /> Agentics NZ Showcase</h1>
       <p class="lead">A curated collection of projects built by the Agentics NZ community using AI agents.</p>
     </div>
     <div class="theme-toggle" role="group" aria-label="Theme">
@@ -492,7 +496,7 @@
   function renderCard(project) {
     const img = project.image
       ? `<div class="thumb"><img src="${escapeHtml(project.image.src)}" alt="${escapeHtml(project.image.alt)}" loading="lazy" /></div>`
-      : `<div class="thumb placeholder">No screenshot</div>`;
+      : '';
 
     const rows = [];
     if (project.fields.description) {
