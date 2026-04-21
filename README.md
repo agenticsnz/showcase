@@ -2,6 +2,13 @@
 
 A curated collection of projects built by the Agentics NZ community using AI agents.
 
+## Apps at a Glance
+
+| | | | |
+|:---:|:---:|:---:|:---:|
+| [<img src="screenshots/sad-salaryman.png" width="150"/><br/>**Sad Salaryman**](#sad-salaryman) | [<img src="screenshots/insurescan.png" width="150"/><br/>**InsureScan NZ**](#insurescan-nz) | [<img src="screenshots/scenia.png" width="150"/><br/>**Scenia**](#scenia) | [<img src="screenshots/iris.png" width="150"/><br/>**Iris**](#iris) |
+| [<img src="screenshots/guild-hall.png" width="150"/><br/>**Guild Hall**](#guild-hall) | [<img src="screenshots/matariki.png" width="150"/><br/>**Matariki Stellar Navigator**](#matariki-stellar-navigator) | [<img src="screenshots/campaign-mode.jpg" width="150"/><br/>**Campaign Mode**](#campaign-mode) | |
+
 ---
 
 ## Categories
