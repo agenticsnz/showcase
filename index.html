@@ -487,6 +487,14 @@
   }
 
   // ---- Render ----
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
   function slugify(s) {
     return s.toLowerCase().trim()
       .replace(/[^\w\s-]/g, '')
@@ -553,6 +561,7 @@
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
       const md = await res.text();
       const categories = parse(md);
+      categories.forEach(c => shuffle(c.projects));
       if (!categories.length) {
         document.getElementById('content').innerHTML = '<p class="error">No projects found in README.md</p>';
         return;
