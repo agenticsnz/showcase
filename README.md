@@ -176,6 +176,23 @@ An enhanced Architecture Decision Record format for AI-assisted development team
 
 ---
 
+### MNEMOS
+
+![MNEMOS](screenshots/mnemos.png)
+
+A containerised, contract-governed memory and retrieval service for AI-native applications.
+
+**Description:** MNEMOS provides a unified, domain-agnostic memory layer featuring TurboQuant 4-bit compression, forensic PostgreSQL audit ledgers, configurable semantic routing tiers, and a conditional Cross-Encoder reranking lane. It abstracts away brittle embeddings and database glue code into a robust REST API and Python SDK, built primarily as an appliance for autonomous agents requiring persistent, scalable cognition.
+
+**Stack:** Python, FastAPI, Qdrant, PostgreSQL, pgvector, Docker, CUDA, BAAI/bge-base
+
+**Builder:** MNEMOS Contributor
+
+**Links:**
+- 🐙 GitHub: [ro0TuX777/MNEMOSv2](https://github.com/ro0TuX777/MNEMOSv2)
+
+---
+
 ## Adding Your Project
 
 To add a project to the showcase:
