@@ -80,6 +80,7 @@ Integrated Repository for Information & Systems — a web-based architectural mo
 **Builder:** [Chris Barlow](https://github.com/cgbarlow)
 
 **Links:**
+- 🌐 Live: [Iris UAT](https://iris-uat.chrisbarlow.nz/)
 - 🐙 GitHub: [cgbarlow/iris](https://github.com/cgbarlow/iris)
 
 ---
