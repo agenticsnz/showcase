@@ -124,8 +124,7 @@ An interactive web experience celebrating Matariki, the Māori New Year.
 
 A lightweight Python 3.7 framework for CLI application development, constructed using Copilot Coding Agent.
 
-**Description:** 
-A framework for constructing simple Python command line utilities through declaring parameters and commands as Dicts, and linking them to executor functions:
+**Description:** A framework for constructing simple Python command line utilities through declaring parameters and commands as Dicts, and linking them to executor functions:
 
 ```python
 # Define parameters
