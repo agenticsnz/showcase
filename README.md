@@ -165,7 +165,7 @@ Because:
 
 1. It was developed almost *entirely* by writing requirements in GitHub tickets, and assigning them to GitHub Coding Agent, or by using Agentic workflows in CoPilot Chat
 2. Because in doing so it was used to debug, diagnose, and develop the initial constraints, rules and workflows for CoPilot that have formed the basis for *all* my subsequent AI work
-3. Because it continues to be useful as a way to produce lightweight Python tools that can be used by Claude Skills and Plugins to consolidate their scripting requirements and provide a common inrterface schema, instead of ad-hoc scripts spread out all over the place
+3. Because it continues to be useful as a way to produce lightweight Python tools that can be used by Claude Skills and Plugins to consolidate their scripting requirements and provide a common interface schema, instead of ad-hoc scripts spread out all over the place
 
 The meat for us is actually in the `features/` folder and the `.github/prompts` folder:
 
