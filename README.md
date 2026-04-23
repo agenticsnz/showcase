@@ -176,7 +176,7 @@ Note that these workflows are effectively a museum piece now - when a plan reach
 
 **Stack:** GitHub CoPilot Chat, GitHub Copilot Coding Agent
 
-**Builder:** [Ciara Norrish](http://github.com/minouris)
+**Builder:** [Ciara Norrish](https://github.com/minouris)
 
 **Links:**
 - 🌐 Live: [https://pypi.org/project/spafw37/](https://pypi.org/project/spafw37/)
