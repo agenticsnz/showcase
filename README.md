@@ -179,8 +179,8 @@ Note that these workflows are effectively a museum piece now - when a plan reach
 **Builder:** [Ciara Norrish](http://github.com/minouris)
 
 **Links:**
-- 🌐 Live: [https://pypi.org/project/spafw37/]()
-- 🐙 GitHub: [https://github.com/minouris/spafw37]()
+- 🌐 Live: [https://pypi.org/project/spafw37/](https://pypi.org/project/spafw37/)
+- 🐙 GitHub: [https://github.com/minouris/spafw37](https://github.com/minouris/spafw37)
 
 ## Tools 
 
