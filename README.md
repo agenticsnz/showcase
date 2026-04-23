@@ -172,7 +172,7 @@ The meat for us is actually in the `features/` folder and the `.github/prompts` 
 - `.github/prompts` contains the workflow prompts for planning features in a way that builds an implementation plan across multiple cumulative steps
 - `features/` contains plans created using those prompts, used as input for the final step of the workflow to produce working implementation, tests and documentation, with the plan file serving as an as-built for the application.
 
-Note that these workflows are effectively a museum piece now - when a plan reaches a certain size, it explodes the context and becomes unworkable. But they're the springboard from which other work flows.
+Note that these workflows are effectively a museum piece now - when a plan reaches a certain size, it explodes the context and becomes unworkable. But they're the springboard from which other workflows.
 
 **Stack:** GitHub CoPilot Chat, GitHub Copilot Coding Agent
 
