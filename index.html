@@ -191,6 +191,14 @@
     box-shadow: var(--shadow);
     border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
   }
+  section.category.featured article.card {
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent), var(--shadow);
+  }
+  section.category.featured article.card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 45%, transparent), var(--shadow);
+  }
   article.card .thumb {
     aspect-ratio: 16 / 9;
     background: var(--surface-2);
@@ -544,8 +552,10 @@
       .join('');
 
     const content = document.getElementById('content');
-    content.innerHTML = categories.map(c => `
-      <section class="category" id="${slugify(c.name)}">
+    content.innerHTML = categories.map(c => {
+      const isFeatured = c.name.toLowerCase() === 'featured';
+      return `
+      <section class="category${isFeatured ? ' featured' : ''}" id="${slugify(c.name)}">
         <header>
           <h2>${escapeHtml(c.name)}</h2>
           ${c.intro ? `<p class="intro">${renderInline(c.intro)}</p>` : ''}
@@ -554,7 +564,8 @@
           ${c.projects.map(renderCard).join('')}
         </div>
       </section>
-    `).join('');
+    `;
+    }).join('');
   }
 
   async function load() {
