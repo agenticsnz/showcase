@@ -199,6 +199,25 @@
     border-color: var(--accent);
     box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 45%, transparent), var(--shadow);
   }
+  section.category.featured .grid {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    section.category.featured article.card {
+      flex-direction: row;
+    }
+    section.category.featured article.card .thumb {
+      flex: 0 0 45%;
+      aspect-ratio: auto;
+      align-self: stretch;
+    }
+    section.category.featured article.card .body {
+      padding: 1.5rem 1.75rem;
+    }
+    section.category.featured article.card h3 {
+      font-size: 1.4rem;
+    }
+  }
   article.card .thumb {
     aspect-ratio: 16 / 9;
     background: var(--surface-2);
