@@ -16,7 +16,7 @@ A curated collection of projects built by the Agentics NZ community using AI age
 
 ### Sovereign Engine
 
-![Sovereign Engine](screenshots/sovereign-engine.png)
+![Sovereign Engine](screenshots/sovereign-engine_dark.png)
 
 A self-contained local AI inference platform — a reverse proxy managing llama.cpp backends with auth, scheduling, and a management dashboard, all in a single Docker image.
 
