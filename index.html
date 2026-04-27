@@ -191,6 +191,33 @@
     box-shadow: var(--shadow);
     border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
   }
+  section.category.featured article.card {
+    border-color: color-mix(in oklab, var(--accent) 55%, var(--border));
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent), var(--shadow);
+  }
+  section.category.featured article.card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 45%, transparent), var(--shadow);
+  }
+  section.category.featured .grid {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    section.category.featured article.card {
+      flex-direction: row;
+    }
+    section.category.featured article.card .thumb {
+      flex: 0 0 45%;
+      aspect-ratio: auto;
+      align-self: stretch;
+    }
+    section.category.featured article.card .body {
+      padding: 1.5rem 1.75rem;
+    }
+    section.category.featured article.card h3 {
+      font-size: 1.4rem;
+    }
+  }
   article.card .thumb {
     aspect-ratio: 16 / 9;
     background: var(--surface-2);
@@ -544,8 +571,10 @@
       .join('');
 
     const content = document.getElementById('content');
-    content.innerHTML = categories.map(c => `
-      <section class="category" id="${slugify(c.name)}">
+    content.innerHTML = categories.map(c => {
+      const isFeatured = c.name.toLowerCase() === 'featured';
+      return `
+      <section class="category${isFeatured ? ' featured' : ''}" id="${slugify(c.name)}">
         <header>
           <h2>${escapeHtml(c.name)}</h2>
           ${c.intro ? `<p class="intro">${renderInline(c.intro)}</p>` : ''}
@@ -554,7 +583,8 @@
           ${c.projects.map(renderCard).join('')}
         </div>
       </section>
-    `).join('');
+    `;
+    }).join('');
   }
 
   async function load() {
@@ -563,7 +593,15 @@
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
       const md = await res.text();
       const categories = parse(md);
-      categories.forEach(c => shuffle(c.projects));
+      // Pin "Featured" to the top, and don't shuffle it.
+      categories.sort((a, b) => {
+        const af = a.name.toLowerCase() === 'featured' ? 0 : 1;
+        const bf = b.name.toLowerCase() === 'featured' ? 0 : 1;
+        return af - bf;
+      });
+      categories.forEach(c => {
+        if (c.name.toLowerCase() !== 'featured') shuffle(c.projects);
+      });
       if (!categories.length) {
         document.getElementById('content').innerHTML = '<p class="error">No projects found in README.md</p>';
         return;

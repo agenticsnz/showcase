@@ -4,8 +4,32 @@ A curated collection of projects built by the Agentics NZ community using AI age
 
 ## Categories
 
+- [Featured](#featured) — Highlighted projects, pinned to the top of the gallery
 - [Built with AI Agents](#built-with-ai-agents) — Applications, tools, and projects created using AI agents
 - [Tools for AI Agent Development](#tools-for-ai-agent-development) — Primitives, libraries, and infrastructure that help build AI agents
+
+---
+
+## Featured
+
+A small, curated selection of projects pinned to the top of the gallery. Always rendered first regardless of shuffle order.
+
+---
+
+### Sovereign Engine
+
+![Sovereign Engine](screenshots/sovereign-engine.png)
+
+A self-contained local AI inference platform — a reverse proxy managing llama.cpp backends with auth, scheduling, and a management dashboard, all in a single Docker image.
+
+**Description:** Routes requests across multiple LLM backends behind an OpenAI-compatible API, with OIDC authentication, per-user API tokens (SHA-256 hashed), GPU memory–aware scheduling and reservations, automatic vision/projector detection for multimodal models, and TLS via manual certs or Let's Encrypt. Network isolation keeps backend containers unreachable from the host via dual Docker networks.
+
+**Stack:** Rust (Axum), TypeScript / React dashboard, SQLite, Docker Compose, llama.cpp
+
+**Builder:** [Agentics NZ](https://github.com/agenticsnz)
+
+**Links:**
+- 🐙 GitHub: [agenticsnz/sovereign-engine](https://github.com/agenticsnz/sovereign-engine)
 
 ---
 
@@ -202,6 +226,12 @@ To add a project to the showcase:
 1. Fork this repository
 2. Add your entry to the appropriate section using the format below
 3. Submit a pull request
+
+### Categories
+
+- **Featured** — Curated highlights, pinned to the top of the gallery. Reserved for projects that exemplify the community; ask a maintainer before adding here.
+- **Built with AI Agents** — Applications, tools, and products built *using* AI agents.
+- **Tools for AI Agent Development** — Libraries, frameworks, and infrastructure that *help build* AI agents.
 
 ### Entry Format
 
