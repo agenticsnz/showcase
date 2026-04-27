@@ -12,8 +12,6 @@ A curated collection of projects built by the Agentics NZ community using AI age
 
 ## Featured
 
-A small, curated selection of projects pinned to the top of the gallery. Always rendered first regardless of shuffle order.
-
 ---
 
 ### Sovereign Engine
