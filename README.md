@@ -24,7 +24,7 @@ A self-contained local AI inference platform — a reverse proxy managing llama.
 
 **Stack:** Rust (Axum), TypeScript / React dashboard, SQLite, Docker Compose, llama.cpp
 
-**Builder:** [Agentics NZ](https://github.com/agenticsnz)
+**Builder:** Graham Rostron-Wood for [Agentics NZ](https://github.com/agenticsnz)
 
 **Links:**
 - 🌐 Live: [Sovereign Engine API Portal](https://api.agentics.org.nz/)
