@@ -563,7 +563,15 @@
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
       const md = await res.text();
       const categories = parse(md);
-      categories.forEach(c => shuffle(c.projects));
+      // Pin "Featured" to the top, and don't shuffle it.
+      categories.sort((a, b) => {
+        const af = a.name.toLowerCase() === 'featured' ? 0 : 1;
+        const bf = b.name.toLowerCase() === 'featured' ? 0 : 1;
+        return af - bf;
+      });
+      categories.forEach(c => {
+        if (c.name.toLowerCase() !== 'featured') shuffle(c.projects);
+      });
       if (!categories.length) {
         document.getElementById('content').innerHTML = '<p class="error">No projects found in README.md</p>';
         return;
