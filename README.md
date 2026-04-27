@@ -27,6 +27,7 @@ A self-contained local AI inference platform — a reverse proxy managing llama.
 **Builder:** [Agentics NZ](https://github.com/agenticsnz)
 
 **Links:**
+- 🌐 Live: [Sovereign Engine API Portal](https://api.agentics.org.nz/)
 - 🐙 GitHub: [agenticsnz/sovereign-engine](https://github.com/agenticsnz/sovereign-engine)
 
 ---
