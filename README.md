@@ -6,6 +6,7 @@ A curated collection of projects built by the Agentics NZ community using AI age
 
 - [Featured](#featured) — Highlighted projects, pinned to the top of the gallery
 - [Built with AI Agents](#built-with-ai-agents) — Applications, tools, and projects created using AI agents
+- [Education](#education) — Frameworks, courses, and platforms that teach how to work with AI agents
 - [Tools for AI Agent Development](#tools-for-ai-agent-development) — Primitives, libraries, and infrastructure that help build AI agents
 
 ---
@@ -108,24 +109,6 @@ Integrated Repository for Information & Systems — a web-based architectural mo
 
 ---
 
-### Guild Hall
-
-![Guild Hall](screenshots/guild-hall.png)
-
-A quest-based engagement platform that reframes community participation around adventure rather than obligation.
-
-**Description:** Game Masters design quests with objectives, deadlines, and difficulty levels. Community members accept quests from a Bounty Board, submit evidence to complete objectives, and earn points and skill tier progression. Built on the philosophy that "obstacles are expected" on quests, whereas goals frame struggle as failure.
-
-**Stack:** Next.js 15, React 18, TypeScript, Tailwind CSS, shadcn/ui, Supabase, TanStack Query, React Hook Form, Zod, Vitest, Netlify
-
-**Builder:** [Chris Barlow](https://github.com/cgbarlow)
-
-**Links:**
-- 🌐 Live: [guildhall.agentics.org.nz](https://guildhall.agentics.org.nz)
-- 🐙 GitHub: [cgbarlow/guild-hall](https://github.com/cgbarlow/guild-hall)
-
----
-
 ### Matariki Stellar Navigator
 
 ![Matariki Stellar Navigator](screenshots/matariki.png)
@@ -141,6 +124,47 @@ An interactive web experience celebrating Matariki, the Māori New Year.
 **Links:**
 - 🌐 Live: [matarikinav.netlify.app](https://matarikinav.netlify.app)
 - 🐙 GitHub: [cgbarlow/matariki](https://github.com/cgbarlow/matariki)
+
+---
+
+## Education
+
+Projects in this section are frameworks, methodologies, courses, and platforms that teach people how to work with AI agents — whether through structured guidance, gamified practice, or governance reference material.
+
+---
+
+### agentics.is
+
+![agentics.is](screenshots/agentics-is.png)
+
+A reference framework for governed execution of AI agents.
+
+**Description:** Teaches how to build agentic systems where agents do bounded work while a deterministic orchestrator owns scope, policy, verification, audit, and approval. Covers the "agentic software factory" model — supervisor, planner, implementer, and reviewer roles — with concepts, architecture, build guidance, and governance reference material. Frames agent control as an architecture problem rather than a prompt problem, emphasising constrained, reconstructable, and reviewable execution over apparent autonomy.
+
+**Stack:** Reference framework / methodology — concepts, architecture patterns, governance and audit guidance
+
+**Builder:** [Perttu Isotalo](https://github.com/perttu)
+
+**Links:**
+- 🌐 Live: [agentics.is](https://agentics.is/)
+
+---
+
+### Guild Hall
+
+![Guild Hall](screenshots/guild-hall.png)
+
+A quest-based engagement platform that reframes community participation around adventure rather than obligation.
+
+**Description:** Game Masters design quests with objectives, deadlines, and difficulty levels. Community members accept quests from a Bounty Board, submit evidence to complete objectives, and earn points and skill tier progression. Built on the philosophy that "obstacles are expected" on quests, whereas goals frame struggle as failure.
+
+**Stack:** Next.js 15, React 18, TypeScript, Tailwind CSS, shadcn/ui, Supabase, TanStack Query, React Hook Form, Zod, Vitest, Netlify
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🌐 Live: [guildhall.agentics.org.nz](https://guildhall.agentics.org.nz)
+- 🐙 GitHub: [cgbarlow/guild-hall](https://github.com/cgbarlow/guild-hall)
 
 ---
 
@@ -201,6 +225,24 @@ An enhanced Architecture Decision Record format for AI-assisted development team
 
 ---
 
+### OpenExec
+
+![OpenExec](screenshots/openexec.png)
+
+The professional's alternative to "chat-and-hope" AI agents — a deterministic AI operating system for surgical implementation, testing, documentation, and audit compliance.
+
+**Description:** A single-binary orchestration layer that wraps AI CLI tools (Claude Code, Codex, Gemini CLI) or any OpenAI-compatible API (Kimi, Mistral, Ollama, DeepSeek, Together AI) with deterministic infrastructure: a 5-stage blueprint pipeline (gather_context → implement → lint → test → review), task classification and routing, quality gates, checkpointing, a memory system that extracts learning patterns across runs, predictive file loading, and a Claude Code–compatible skills system. Ships with an MCP server, an embedded React/Vite web UI, and a Bubble Tea TUI. Coordinator multi-agent mode lets a frontier model decompose tasks for parallel workers.
+
+**Stack:** Go (single binary), React / Vite (embedded web UI), Bubble Tea (TUI), MCP / JSON-RPC, optional BitNet for local intent classification, MIT licensed
+
+**Builder:** [Perttu Isotalo](https://github.com/perttu)
+
+**Links:**
+- 🌐 Live: [openexec.io](https://openexec.io/)
+- 🐙 GitHub: [openexec/openexec](https://github.com/openexec/openexec)
+
+---
+
 ### MNEMOS
 
 ![MNEMOS](screenshots/mnemos.png)
@@ -230,6 +272,7 @@ To add a project to the showcase:
 
 - **Featured** — Curated highlights, pinned to the top of the gallery. Reserved for projects that exemplify the community; ask a maintainer before adding here.
 - **Built with AI Agents** — Applications, tools, and products built *using* AI agents.
+- **Education** — Frameworks, methodologies, courses, and platforms that teach how to work with AI agents.
 - **Tools for AI Agent Development** — Libraries, frameworks, and infrastructure that *help build* AI agents.
 
 ### Entry Format
