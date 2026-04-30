@@ -225,6 +225,24 @@ An enhanced Architecture Decision Record format for AI-assisted development team
 
 ---
 
+### OpenExec
+
+![OpenExec](screenshots/openexec.png)
+
+The professional's alternative to "chat-and-hope" AI agents — a deterministic AI operating system for surgical implementation, testing, documentation, and audit compliance.
+
+**Description:** A single-binary orchestration layer that wraps AI CLI tools (Claude Code, Codex, Gemini CLI) or any OpenAI-compatible API (Kimi, Mistral, Ollama, DeepSeek, Together AI) with deterministic infrastructure: a 5-stage blueprint pipeline (gather_context → implement → lint → test → review), task classification and routing, quality gates, checkpointing, a memory system that extracts learning patterns across runs, predictive file loading, and a Claude Code–compatible skills system. Ships with an MCP server, an embedded React/Vite web UI, and a Bubble Tea TUI. Coordinator multi-agent mode lets a frontier model decompose tasks for parallel workers.
+
+**Stack:** Go (single binary), React / Vite (embedded web UI), Bubble Tea (TUI), MCP / JSON-RPC, optional BitNet for local intent classification, MIT licensed
+
+**Builder:** [Perttu Isotalo](https://github.com/perttu)
+
+**Links:**
+- 🌐 Live: [openexec.io](https://openexec.io/)
+- 🐙 GitHub: [openexec/openexec](https://github.com/openexec/openexec)
+
+---
+
 ### MNEMOS
 
 ![MNEMOS](screenshots/mnemos.png)
