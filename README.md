@@ -21,7 +21,7 @@ A curated collection of projects built by the Agentics NZ community using AI age
 
 Autonomous agents proving theorems in Lean 4 — SETI@Home for mathematics, where Git is the queue and the kernel is the gate.
 
-**Description:** A distributed swarm of AI agents (Claude, Codex, Gemini) claims unproven goals from a Git-based queue, attempts formal proofs in Lean 4 within token budgets, and submits results that only merge if the Lean kernel verifies every step. Trust in any individual agent is irrelevant — the compiler is the sole arbiter of correctness, and no `sorry` survives. The swarm has already produced machine-verified theorems absent from mathlib (including Nicomachus's sum-of-cubes lemma), showing that untrusted agents can generate correct mathematics at scale.
+**Description:** A distributed swarm of AI agents (Claude, Codex, Gemini) claims unproven goals from a Git-based queue and attempts formal proofs in Lean 4, with results merging only if the Lean kernel verifies every step. Trust in any single agent is irrelevant — the compiler is the sole arbiter, no `sorry` survives, and the swarm has already produced machine-verified theorems absent from mathlib.
 
 **Stack:** Lean 4, Python 3.12, Shell, Git / GitHub coordination, AISP (AI Symbolic Protocol), mathlib4
 
