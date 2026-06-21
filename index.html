@@ -247,9 +247,6 @@
     grid-row: 1;
     grid-column: 2;
     overflow: hidden;
-    /* Padding keeps the featured card's focus ring/shadow from being clipped. */
-    padding: 6px;
-    margin: -6px;
   }
   .carousel-track {
     display: flex;
@@ -258,6 +255,18 @@
   }
   .carousel-slide {
     flex: 0 0 100%;
+    min-width: 0;
+    /* Inset on the slide (not the viewport) keeps the featured card's focus
+       ring from being clipped, leaves the card comfortably inside the hover
+       target so mouseenter/leave don't oscillate, and avoids a sliver of the
+       next slide peeking past the viewport edge. */
+    padding: 6px;
+    /* Stretch every card to the height of the tallest slide so the carousel
+       doesn't change height as it rotates. */
+    display: flex;
+  }
+  .carousel-slide > .card {
+    flex: 1 1 auto;
     min-width: 0;
   }
   .carousel-arrow {
@@ -748,6 +757,7 @@
 
     let index = 0;
     let timer = null;
+    let paused = false;
 
     const dots = slides.map((_, i) => {
       const b = document.createElement('button');
@@ -770,24 +780,25 @@
 
     function start() {
       if (reduceMotion || timer) return;
-      timer = setInterval(() => step(1), interval);
+      // A single persistent timer; `paused` decides whether a tick advances,
+      // so transient hover enter/leave events can't leave a stray timer running.
+      timer = setInterval(() => { if (!paused) step(1); }, interval);
     }
-    function stop() {
+    function restart() {
+      // Reset the interval phase after a manual jump.
       if (timer) { clearInterval(timer); timer = null; }
+      start();
     }
-    function restart() { stop(); start(); }
 
     prev.addEventListener('click', () => { step(-1); restart(); });
     next.addEventListener('click', () => { step(1); restart(); });
 
-    // Hold while the cursor is over the card, or while a control has focus.
-    el.addEventListener('mouseenter', stop);
-    el.addEventListener('mouseleave', start);
-    el.addEventListener('focusin', stop);
-    el.addEventListener('focusout', start);
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stop(); else start();
-    });
+    // Hold while the cursor is over the carousel, or while a control has focus.
+    el.addEventListener('mouseenter', () => { paused = true; });
+    el.addEventListener('mouseleave', () => { paused = false; });
+    el.addEventListener('focusin', () => { paused = true; });
+    el.addEventListener('focusout', () => { paused = false; });
+    document.addEventListener('visibilitychange', () => { paused = document.hidden; });
 
     goTo(0);
     start();
