@@ -757,7 +757,6 @@
 
     let index = 0;
     let timer = null;
-    let paused = false;
 
     const dots = slides.map((_, i) => {
       const b = document.createElement('button');
@@ -778,11 +777,19 @@
     }
     function step(dir) { goTo(index + dir); }
 
+    // Whether autoplay should hold right now. Queried live at each tick from the
+    // browser's own :hover / focus / visibility state — NOT from mouseenter/leave
+    // events, which are missed when a slide animates under a stationary pointer
+    // (that was why hovering didn't reliably pause the carousel).
+    function shouldHold() {
+      return document.hidden
+        || el.matches(':hover')
+        || el.contains(document.activeElement);
+    }
+
     function start() {
       if (reduceMotion || timer) return;
-      // A single persistent timer; `paused` decides whether a tick advances,
-      // so transient hover enter/leave events can't leave a stray timer running.
-      timer = setInterval(() => { if (!paused) step(1); }, interval);
+      timer = setInterval(() => { if (!shouldHold()) step(1); }, interval);
     }
     function restart() {
       // Reset the interval phase after a manual jump.
@@ -792,13 +799,6 @@
 
     prev.addEventListener('click', () => { step(-1); restart(); });
     next.addEventListener('click', () => { step(1); restart(); });
-
-    // Hold while the cursor is over the carousel, or while a control has focus.
-    el.addEventListener('mouseenter', () => { paused = true; });
-    el.addEventListener('mouseleave', () => { paused = false; });
-    el.addEventListener('focusin', () => { paused = true; });
-    el.addEventListener('focusout', () => { paused = false; });
-    document.addEventListener('visibilitychange', () => { paused = document.hidden; });
 
     goTo(0);
     start();
