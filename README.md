@@ -278,6 +278,23 @@ A containerised, contract-governed memory and retrieval service for AI-native ap
 
 ---
 
+### Protocols
+
+![Protocols](screenshots/protocols.png)
+
+Engineering protocols for Claude Code /plan mode workflows.
+
+**Description:** A curated set of non-negotiable engineering standards for Claude Code's plan mode — covering architecture decision records, specifications, test-driven development, feature branches, changelogs, releases, context management, production readiness, agent teams, dependency hygiene, README accuracy, and DRY (plus conditional Svelte frontend security). Vendor them into a project, add via git submodule/subtree, or symlink locally, then reference as `@protocols.md` in your prompts.
+
+**Stack:** Markdown protocol specifications for Claude Code `/plan` mode
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🐙 GitHub: [cgbarlow/protocols](https://github.com/cgbarlow/protocols)
+
+---
+
 ## Adding Your Project
 
 To add a project to the showcase:
