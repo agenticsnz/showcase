@@ -13,11 +13,11 @@
 <meta property="og:title" content="Agentics NZ Showcase" />
 <meta property="og:description" content="A curated collection of projects built by the Agentics NZ community using AI agents." />
 <meta property="og:url" content="https://showcase.agentics.org.nz/" />
-<meta property="og:image" content="https://showcase.agentics.org.nz/screenshots/sovereign-engine.png" />
+<meta property="og:image" content="https://showcase.agentics.org.nz/screenshots/unsorry-infographic.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Agentics NZ Showcase" />
 <meta name="twitter:description" content="A curated collection of projects built by the Agentics NZ community using AI agents." />
-<meta name="twitter:image" content="https://showcase.agentics.org.nz/screenshots/sovereign-engine.png" />
+<meta name="twitter:image" content="https://showcase.agentics.org.nz/screenshots/unsorry-infographic.jpg" />
 <style>
   :root {
     --bg: #f8fafc;
@@ -235,6 +235,94 @@
       font-size: 1.4rem;
     }
   }
+
+  /* ---- Featured carousel ---- */
+  .carousel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem 0.6rem;
+  }
+  .carousel-viewport {
+    grid-row: 1;
+    grid-column: 2;
+    overflow: hidden;
+    /* Padding keeps the featured card's focus ring/shadow from being clipped. */
+    padding: 6px;
+    margin: -6px;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+  .carousel-arrow {
+    grid-row: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 9999px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .carousel-arrow:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .carousel-arrow:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .carousel-arrow svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .carousel-arrow[data-dir="-1"] { grid-column: 1; }
+  .carousel-arrow[data-dir="1"] { grid-column: 3; }
+  .carousel-dots {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+  .carousel-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    padding: 0;
+    border: 0;
+    border-radius: 9999px;
+    background: var(--border);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+  .carousel-dot:hover { background: var(--muted); }
+  .carousel-dot[aria-current="true"] {
+    background: var(--accent);
+    transform: scale(1.2);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-track { transition: none; }
+  }
+
   article.card .thumb {
     aspect-ratio: 16 / 9;
     background: var(--surface-2);
@@ -601,18 +689,108 @@
     const content = document.getElementById('content');
     content.innerHTML = categories.map(c => {
       const isFeatured = c.name.toLowerCase() === 'featured';
+      const body = isFeatured
+        ? renderCarousel(c)
+        : `<div class="grid">${c.projects.map(renderCard).join('')}</div>`;
       return `
       <section class="category${isFeatured ? ' featured' : ''}" id="${slugify(c.name)}">
         <header>
           <h2>${escapeHtml(c.name)}</h2>
           ${c.intro ? `<p class="intro">${renderInline(c.intro)}</p>` : ''}
         </header>
-        <div class="grid">
-          ${c.projects.map(renderCard).join('')}
-        </div>
+        ${body}
       </section>
     `;
     }).join('');
+
+    initCarousels(content);
+  }
+
+  // ---- Featured carousel ----
+  const CHEVRON_LEFT = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>';
+  const CHEVRON_RIGHT = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+
+  function renderCarousel(c) {
+    const slides = c.projects
+      .map(p => `<div class="carousel-slide">${renderCard(p)}</div>`)
+      .join('');
+    return `
+      <div class="carousel" data-carousel data-interval="5000"
+           role="group" aria-roledescription="carousel" aria-label="${escapeHtml(c.name)} projects">
+        <button class="carousel-arrow" type="button" data-dir="-1" aria-label="Previous project">${CHEVRON_LEFT}</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track">${slides}</div>
+        </div>
+        <button class="carousel-arrow" type="button" data-dir="1" aria-label="Next project">${CHEVRON_RIGHT}</button>
+        <div class="carousel-dots" role="tablist" aria-label="Select project"></div>
+      </div>
+    `;
+  }
+
+  function initCarousels(scope) {
+    (scope || document).querySelectorAll('[data-carousel]').forEach(setupCarousel);
+  }
+
+  function setupCarousel(el) {
+    const track = el.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prev = el.querySelector('[data-dir="-1"]');
+    const next = el.querySelector('[data-dir="1"]');
+    const dotsWrap = el.querySelector('.carousel-dots');
+    const interval = parseInt(el.dataset.interval, 10) || 5000;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // A single slide needs no controls or rotation.
+    if (slides.length <= 1) {
+      [prev, next, dotsWrap].forEach(n => n && (n.style.display = 'none'));
+      return;
+    }
+
+    let index = 0;
+    let timer = null;
+
+    const dots = slides.map((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'carousel-dot';
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', `Project ${i + 1} of ${slides.length}`);
+      b.addEventListener('click', () => { goTo(i); restart(); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.setAttribute('aria-current', di === index ? 'true' : 'false'));
+      slides.forEach((s, si) => s.setAttribute('aria-hidden', si === index ? 'false' : 'true'));
+    }
+    function step(dir) { goTo(index + dir); }
+
+    function start() {
+      if (reduceMotion || timer) return;
+      timer = setInterval(() => step(1), interval);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function restart() { stop(); start(); }
+
+    prev.addEventListener('click', () => { step(-1); restart(); });
+    next.addEventListener('click', () => { step(1); restart(); });
+
+    // Hold while the cursor is over the card, or while a control has focus.
+    el.addEventListener('mouseenter', stop);
+    el.addEventListener('mouseleave', start);
+    el.addEventListener('focusin', stop);
+    el.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop(); else start();
+    });
+
+    goTo(0);
+    start();
   }
 
   async function load() {
