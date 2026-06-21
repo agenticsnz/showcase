@@ -15,6 +15,24 @@ A curated collection of projects built by the Agentics NZ community using AI age
 
 ---
 
+### Unsorry
+
+![Unsorry](screenshots/unsorry-infographic.jpg)
+
+Autonomous agents proving theorems in Lean 4 — SETI@Home for mathematics, where Git is the queue and the kernel is the gate.
+
+**Description:** A distributed swarm of AI agents (Claude, Codex, Gemini) claims unproven goals from a Git-based queue, attempts formal proofs in Lean 4 within token budgets, and submits results that only merge if the Lean kernel verifies every step. Trust in any individual agent is irrelevant — the compiler is the sole arbiter of correctness, and no `sorry` survives. The swarm has already produced machine-verified theorems absent from mathlib (including Nicomachus's sum-of-cubes lemma), showing that untrusted agents can generate correct mathematics at scale.
+
+**Stack:** Lean 4, Python 3.12, Shell, Git / GitHub coordination, AISP (AI Symbolic Protocol), mathlib4
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow) and [Perttu Isotalo](https://github.com/perttu) for [Agentics NZ](https://github.com/agenticsnz)
+
+**Links:**
+- 🌐 Live: [unsorry.agentics.org.nz](https://unsorry.agentics.org.nz/)
+- 🐙 GitHub: [agenticsnz/unsorry](https://github.com/agenticsnz/unsorry)
+
+---
+
 ### Sovereign Engine
 
 ![Sovereign Engine](screenshots/sovereign-engine_dark.png)
