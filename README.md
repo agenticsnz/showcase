@@ -278,6 +278,24 @@ A containerised, contract-governed memory and retrieval service for AI-native ap
 
 ---
 
+### Ready for Agent
+
+![Ready for Agent](screenshots/ready-for-agent.png)
+
+Turn ready-labelled GitHub and GitLab issues into reviewed pull requests without babysitting coding agents.
+
+**Description:** A local clanker harness that gives each issue to OpenCode, Codex, Grok Build, or Claude Code in an isolated worktree and drives implementation, review, status checks, and merge. It supports per-repository model selection, human checkpoints, and risk-gated auto-merge while reusing the developer's existing machine, tools, and agent subscriptions.
+
+**Stack:** TypeScript, Effect, Bun, React, TanStack Start, GraphQL Yoga, SQLite / Turso, Nx
+
+**Builder:** [Berend de Boer](https://github.com/berenddeboer)
+
+**Links:**
+- 🌐 Package: [ready-for-agent on npm](https://www.npmjs.com/package/ready-for-agent)
+- 🐙 GitHub: [berenddeboer/ready-for-agent](https://github.com/berenddeboer/ready-for-agent)
+
+---
+
 ### Protocols
 
 ![Protocols](screenshots/protocols.png)
