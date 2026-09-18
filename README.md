@@ -145,6 +145,23 @@ An interactive web experience celebrating Matariki, the Māori New Year.
 
 ---
 
+### Gantry
+
+![Gantry](screenshots/gantry.png)
+
+A repo-driven pipeline for staged, gated processes — capture the data once, render whatever document the gate asks for.
+
+**Description:** Gantry separates the *content* of a process from the *documents* it produces. A versioned **definition** describes the stages, gates, module specs and artefact templates; an **instance** is a folder of flat markdown modules in Git that people or agents fill in, by editor or through the bundled web form. Artefacts — a Solution on a Page, a business case, a handover pack — are rendered on demand from that one set of modules, so nothing drifts out of sync, and `git log` is the audit trail. The engine is deliberately process-agnostic: design, procurement, incident review and operational handover are all just definitions. Instances can live in a local folder or in an Azure DevOps workspace, where stage advancement is gated on an approved Pull Request.
+
+**Stack:** Node.js 24+, JavaScript, Go templates, Pandoc (WASM + native), flat files in Git, Azure DevOps integration
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🐙 GitHub: [cgbarlow/gantry](https://github.com/cgbarlow/gantry)
+
+---
+
 ## Education
 
 Projects in this section are frameworks, methodologies, courses, and platforms that teach people how to work with AI agents — whether through structured guidance, gamified practice, or governance reference material.
