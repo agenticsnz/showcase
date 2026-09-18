@@ -29,6 +29,9 @@
     --accent: #2563eb;
     --accent-soft: #dbeafe;
     --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    /* The rail sits clear of the viewport edge; sections align to the same line. */
+    --rail-top: 1.75rem;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -146,31 +149,108 @@
     font-weight: 600;
   }
 
-  nav.toc {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+  /* ---- Sticky category rail + content ---- */
+  .rail-layout {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 3.5rem;
+    align-items: start;
   }
-  nav.toc a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.35rem 0.85rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 9999px;
-    font-size: 0.85rem;
+
+  nav.rail {
+    position: sticky;
+    top: var(--rail-top);
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+    /* A long category list scrolls within the rail rather than past the fold. */
+    max-height: calc(100vh - var(--rail-top) * 2);
+    overflow-y: auto;
+  }
+  .rail-label {
+    padding-bottom: 0.55rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--muted);
   }
-  nav.toc a:hover {
+  nav.rail a {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+    gap: 0.55rem;
+    align-items: baseline;
+    padding: 0.5rem 0 0.5rem 0.7rem;
+    border-left: 2px solid transparent;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    color: var(--text);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  nav.rail a:hover {
     color: var(--accent);
-    border-color: var(--accent);
     text-decoration: none;
+  }
+  nav.rail a[aria-current="true"] {
+    border-left-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  nav.rail a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .rail-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    opacity: 0.7;
+  }
+  nav.rail a[aria-current="true"] .rail-num { opacity: 1; }
+  .rail-count {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Below the breakpoint the rail stops earning its column and becomes the
+     horizontal pill row it replaced. */
+  @media (max-width: 900px) {
+    .rail-layout { display: block; }
+    nav.rail {
+      position: static;
+      max-height: none;
+      overflow: visible;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-top: 0;
+      padding-top: 0;
+      margin-bottom: 2rem;
+    }
+    .rail-label { display: none; }
+    nav.rail a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      background: var(--surface);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    nav.rail a[aria-current="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .rail-num { display: none; }
   }
 
   section.category {
     margin-bottom: 3rem;
-    scroll-margin-top: 1rem;
+    scroll-margin-top: var(--rail-top);
   }
   section.category > header {
     margin-bottom: 1.25rem;
@@ -451,11 +531,15 @@
     <p class="lead">A curated collection of projects built by the Agentics NZ community using AI agents.</p>
   </header>
 
-  <nav class="toc" id="toc" aria-label="Categories"></nav>
+  <div class="rail-layout">
+    <nav class="rail" id="rail" aria-label="Categories">
+      <div class="rail-label">Categories</div>
+    </nav>
 
-  <main id="content">
-    <p class="loading">Loading projects from README…</p>
-  </main>
+    <main id="content">
+      <p class="loading">Loading projects from README…</p>
+    </main>
+  </div>
 
   <footer class="site">
     <span>Content rendered from <a href="./README.md">README.md</a> at load time.</span>
@@ -690,10 +774,16 @@
   }
 
   function render(categories) {
-    const toc = document.getElementById('toc');
-    toc.innerHTML = categories
-      .map(c => `<a href="#${slugify(c.name)}">${escapeHtml(c.name)} <span style="opacity:.6;margin-left:.3rem">${c.projects.length}</span></a>`)
-      .join('');
+    const rail = document.getElementById('rail');
+    const label = rail.querySelector('.rail-label');
+    rail.innerHTML = '';
+    if (label) rail.appendChild(label);
+    rail.insertAdjacentHTML('beforeend', categories
+      .map((c, i) => `<a href="#${slugify(c.name)}">`
+        + `<span class="rail-num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>`
+        + `<span class="rail-name">${escapeHtml(c.name)}</span>`
+        + `<span class="rail-count">${c.projects.length}</span></a>`)
+      .join(''));
 
     const content = document.getElementById('content');
     content.innerHTML = categories.map(c => {
@@ -713,6 +803,51 @@
     }).join('');
 
     initCarousels(content);
+    initRailHighlight();
+  }
+
+  // ---- Rail scroll highlight ----
+  // The rail marks the section the reader is currently in: the last one whose
+  // top has passed the rail's own sticky line.
+  function initRailHighlight() {
+    const links = Array.from(document.querySelectorAll('nav.rail a'));
+    if (!links.length) return;
+
+    const targets = links
+      .map(a => ({ link: a, section: document.getElementById(decodeURIComponent(a.hash.slice(1))) }))
+      .filter(t => t.section);
+
+    let current = null;
+    function update() {
+      // Matches section.category's scroll-margin-top, plus a little slack so a
+      // section counts as current just before its heading reaches the line.
+      const styles = getComputedStyle(document.documentElement);
+      const rem = parseFloat(styles.fontSize) || 16;
+      const line = parseFloat(styles.getPropertyValue('--rail-top')) * rem + 24;
+      let active = targets[0];
+      for (const t of targets) {
+        if (t.section.getBoundingClientRect().top <= line) active = t;
+      }
+      // At the very bottom the last section is current even if it never
+      // reaches the line.
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        active = targets[targets.length - 1];
+      }
+      if (active === current) return;
+      if (current) current.link.removeAttribute('aria-current');
+      active.link.setAttribute('aria-current', 'true');
+      current = active;
+    }
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { ticking = false; update(); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
   }
 
   // ---- Featured carousel ----
