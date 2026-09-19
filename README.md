@@ -273,23 +273,6 @@ Assemble a party of AI advisors with genuinely different perspectives.
 
 ---
 
-### Sad Salaryman
-
-![Sad Salaryman](screenshots/sad-salaryman.png)
-
-A gamified object scanning app where you earn "burden" as an unpaid intern.
-
-**Description:** Turn your life into a corporate simulation. Scan everyday objects to earn burden, track your progress through corporate ranks, and climb from Unpaid Intern to Contractor.
-
-**Stack:** TBD
-
-**Builder:** [Waylon Kenning](https://kenning.co.nz)
-
-**Links:**
-- 🌐 Live: [sadsalaryman.com](https://sadsalaryman.com)
-
----
-
 ## Experimental / R&D
 
 Open questions, tested with working systems. Each project asks something nobody here knew the answer to, and answers it with something that runs.
@@ -351,6 +334,23 @@ An interactive web experience celebrating Matariki, the Māori New Year.
 **Links:**
 - 🌐 Live: [matarikinav.netlify.app](https://matarikinav.netlify.app)
 - 🐙 GitHub: [cgbarlow/matariki](https://github.com/cgbarlow/matariki)
+
+---
+
+### Sad Salaryman
+
+![Sad Salaryman](screenshots/sad-salaryman.png)
+
+A gamified object scanning app where you earn "burden" as an unpaid intern.
+
+**Description:** Turn your life into a corporate simulation. Scan everyday objects to earn burden, track your progress through corporate ranks, and climb from Unpaid Intern to Contractor.
+
+**Stack:** TBD
+
+**Builder:** [Waylon Kenning](https://kenning.co.nz)
+
+**Links:**
+- 🌐 Live: [sadsalaryman.com](https://sadsalaryman.com)
 
 ---
 
