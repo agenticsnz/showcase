@@ -70,11 +70,10 @@
 
   .showcase { padding-bottom: 6.4rem; }
 
-  .showcase-header {
-    margin: 4.8rem 0 5.6rem;
-  }
+  /* Spacing above and below the title comes from the theme's own
+     .gh-article-header, so the title sits on the same line as it does on any
+     Ghost page. */
   .showcase-header .gh-article-excerpt {
-    margin-bottom: 0;
     /* The theme caps an excerpt at its 720px reading column. This one heads a
        full-width gallery rather than an article, so it runs the same width. */
     max-width: none;
@@ -203,8 +202,15 @@
 
   .showcase .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
+  }
+  /* Two columns need roughly 400px each to hold a card's meta rows; below that
+     the grid drops to one. */
+  @media (max-width: 860px) {
+    .showcase .grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   .showcase article.card {
@@ -514,7 +520,7 @@
     <div class="gh-outer">
       <div class="gh-inner showcase">
 
-        <header class="showcase-header">
+        <header class="gh-article-header showcase-header">
           <h1 class="gh-article-title is-title">Showcase</h1>
           <p class="gh-article-excerpt is-body">A curated collection of projects built by the Agentics NZ community using AI agents.</p>
         </header>
