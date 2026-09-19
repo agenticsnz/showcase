@@ -5,9 +5,15 @@ A curated collection of projects built by the Agentics NZ community using AI age
 ## Categories
 
 - [Featured](#featured) — Highlighted projects, pinned to the top of the gallery
-- [Built with AI Agents](#built-with-ai-agents) — Applications, tools, and projects created using AI agents
-- [Education](#education) — Frameworks, courses, and platforms that teach how to work with AI agents
-- [Tools for AI Agent Development](#tools-for-ai-agent-development) — Primitives, libraries, and infrastructure that help build AI agents
+
+The rest are themes, and the order matters. The first five are about how the work is changing, roughly from the practice outwards; the sixth is the fun stuff.
+
+- **01** [Re-imagining work](#re-imagining-work) — Tools that change what the work is, not just how fast it gets done.
+- **02** [Standards & practice](#standards--practice) — How this community works, written down so anyone can pick it up.
+- **03** [Agent infrastructure](#agent-infrastructure) — What the agents run on: harnesses, orchestration, memory and inference.
+- **04** [Quest-based experiences](#quest-based-experiences) — Game mechanics that get people to take part and finish.
+- **05** [Experimental / R&D](#experimental--rd) — Open questions, tested with working systems.
+- **06** [Side quests](#side-quests) — Small self-contained builds that exist and run.
 
 ---
 
@@ -51,61 +57,9 @@ A self-contained local AI inference platform — a reverse proxy managing llama.
 
 ---
 
-## Built with AI Agents
+## Re-imagining work
 
-Projects in this section are full applications, products, and prototypes built *using* AI agents as part of the development workflow.
-
----
-
-### Sad Salaryman
-
-![Sad Salaryman](screenshots/sad-salaryman.png)
-
-A gamified object scanning app where you earn "burden" as an unpaid intern.
-
-**Description:** Turn your life into a corporate simulation. Scan everyday objects to earn burden, track your progress through corporate ranks, and climb from Unpaid Intern to Contractor.
-
-**Stack:** TBD
-
-**Builder:** [Waylon Kenning](https://kenning.co.nz)
-
-**Links:**
-- 🌐 Live: [sadsalaryman.com](https://sadsalaryman.com)
-
----
-
-### InsureScan NZ
-
-![InsureScan NZ](screenshots/insurescan.png)
-
-AI-powered home contents valuation for insurance.
-
-**Description:** Identify, value, and catalog your home contents in minutes with AI. Snap photos of items, get instant NZ pricing with GST included, and export professional PDF inventories for insurance claims.
-
-**Stack:** TBD
-
-**Builder:** [Waylon Kenning](https://kenning.co.nz)
-
-**Links:**
-- 🌐 Live: [insurescan.website](https://insurescan.website)
-
----
-
-### Scenia
-
-![Scenia](screenshots/scenia.png)
-
-IT Portfolio Planning & Visualisation.
-
-**Description:** Map initiatives across time, sequence dependencies, track costs, and report on progress. A visual timeline tool for IT portfolio planning with conflict detection, critical path analysis, and budget visualisation.
-
-**Stack:** React, TypeScript, Vite, Tailwind, IndexedDB (Dexie)
-
-**Builder:** [Waylon Kenning](https://kenning.co.nz)
-
-**Links:**
-- 🌐 Live: [scenia.website](https://scenia.website)
-- 🐙 GitHub: [waylonkenning/scenia](https://github.com/waylonkenning/scenia)
+Tools that change what the work is, not just how fast it gets done. These projects don't speed up an existing process — they move where the source of truth lives, so the work itself is different afterwards.
 
 ---
 
@@ -127,24 +81,6 @@ Integrated Repository for Information & Systems — a web-based architectural mo
 
 ---
 
-### Matariki Stellar Navigator
-
-![Matariki Stellar Navigator](screenshots/matariki.png)
-
-An interactive web experience celebrating Matariki, the Māori New Year.
-
-**Description:** Explore the nine stars of the Matariki cluster through an interactive navigator that pairs traditional stories and cultural significance with a guided star-finding experience. Built with respect for Māori culture and traditions.
-
-**Stack:** JavaScript, HTML, CSS, Netlify
-
-**Builder:** [Chris Barlow](https://github.com/cgbarlow)
-
-**Links:**
-- 🌐 Live: [matarikinav.netlify.app](https://matarikinav.netlify.app)
-- 🐙 GitHub: [cgbarlow/matariki](https://github.com/cgbarlow/matariki)
-
----
-
 ### Gantry
 
 ![Gantry](screenshots/gantry.png)
@@ -162,9 +98,61 @@ A repo-driven pipeline for staged, gated processes — capture the data once, re
 
 ---
 
-## Education
+### Scenia
 
-Projects in this section are frameworks, methodologies, courses, and platforms that teach people how to work with AI agents — whether through structured guidance, gamified practice, or governance reference material.
+![Scenia](screenshots/scenia.png)
+
+IT Portfolio Planning & Visualisation.
+
+**Description:** Map initiatives across time, sequence dependencies, track costs, and report on progress. A visual timeline tool for IT portfolio planning with conflict detection, critical path analysis, and budget visualisation.
+
+**Stack:** React, TypeScript, Vite, Tailwind, IndexedDB (Dexie)
+
+**Builder:** [Waylon Kenning](https://kenning.co.nz)
+
+**Links:**
+- 🌐 Live: [scenia.website](https://scenia.website)
+- 🐙 GitHub: [waylonkenning/scenia](https://github.com/waylonkenning/scenia)
+
+---
+
+## Standards & practice
+
+How this community works, written down so anyone can pick it up. Methods, formats and reference frameworks that hold agent-assisted delivery to the standards established engineering already expects.
+
+---
+
+### ADR (WH(Y) Method)
+
+![ADR](screenshots/adr-why.webp)
+
+An enhanced Architecture Decision Record format for AI-assisted development teams.
+
+**Description:** Addresses structural inconsistency and the conflation of decision rationale with implementation details in existing ADR practice. Provides standardised templates, dependency tracking between decisions, and governance metadata so humans and AI agents can capture and maintain architectural choices with clarity. Language-agnostic and designed to integrate with ADR tooling via options like `adr new --mode=enhanced`.
+
+**Stack:** Markdown specification, language-agnostic templates
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🐙 GitHub: [cgbarlow/adr](https://github.com/cgbarlow/adr)
+
+---
+
+### Protocols
+
+![Protocols](screenshots/protocols.png)
+
+Engineering protocols for Claude Code /plan mode workflows.
+
+**Description:** A curated set of non-negotiable engineering standards for Claude Code's plan mode — covering architecture decision records, specifications, test-driven development, feature branches, changelogs, releases, context management, production readiness, agent teams, dependency hygiene, README accuracy, and DRY (plus conditional Svelte frontend security). Vendor them into a project, add via git submodule/subtree, or symlink locally, then reference as `@protocols.md` in your prompts.
+
+**Stack:** Markdown protocol specifications for Claude Code `/plan` mode
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🐙 GitHub: [cgbarlow/protocols](https://github.com/cgbarlow/protocols)
 
 ---
 
@@ -185,78 +173,9 @@ A reference framework for governed execution of AI agents.
 
 ---
 
-### Guild Hall
+## Agent infrastructure
 
-![Guild Hall](screenshots/guild-hall.png)
-
-A quest-based engagement platform that reframes community participation around adventure rather than obligation.
-
-**Description:** Game Masters design quests with objectives, deadlines, and difficulty levels. Community members accept quests from a Bounty Board, submit evidence to complete objectives, and earn points and skill tier progression. Built on the philosophy that "obstacles are expected" on quests, whereas goals frame struggle as failure.
-
-**Stack:** Next.js 15, React 18, TypeScript, Tailwind CSS, shadcn/ui, Supabase, TanStack Query, React Hook Form, Zod, Vitest, Netlify
-
-**Builder:** [Chris Barlow](https://github.com/cgbarlow)
-
-**Links:**
-- 🌐 Live: [guildhall.agentics.org.nz](https://guildhall.agentics.org.nz)
-- 🐙 GitHub: [cgbarlow/guild-hall](https://github.com/cgbarlow/guild-hall)
-
----
-
-## Tools 
-
-Projects in this section are libraries, frameworks, and tooling that help creators.
-
----
-
-### Campaign Mode
-
-![Campaign Mode](screenshots/campaign-mode.jpg)
-
-Assemble a party of AI advisors with genuinely different perspectives.
-
-**Description:** A plugin system for Claude Desktop and Claude Code CLI that frames collaborative problem-solving as a quest. Six animal-based agents provide distinct viewpoints while three NPC characters (Gandalf, Guardian, Dragon) offer mentorship, progress evaluation, and adversarial testing — helping surface blind spots and stress-test ideas before they matter. Built on the Six Animals framework with Markdown-based persistence for campaign state.
-
-**Stack:** Claude Desktop / Claude Code plugin, Markdown persistence (`.campaign/quest.md`), CC-BY-SA-4.0
-
-**Builder:** [Chris Barlow](https://github.com/cgbarlow)
-
-**Links:**
-- 🐙 GitHub: [cgbarlow/campaign-mode](https://github.com/cgbarlow/campaign-mode)
-
----
-
-### Machine Dream
-
-![Machine Dream](screenshots/machine-dream.jpg)
-
-A continuous AI cognition platform that lets models learn from experience and consolidate knowledge across sessions.
-
-**Description:** Uses Sudoku as a research testbed to implement a learning loop where AI plays puzzles, makes mistakes, "dreams" (consolidates experiences into patterns), and improves over time — with no external hints or deterministic fallbacks. Implements the GRASP Loop (Generate → Review → Absorb → Synthesize → Persist) with three clustering algorithms: FastCluster, DeepCluster, and LLMCluster.
-
-**Stack:** TypeScript, Node.js 20+, SQLite, OpenAI-compatible APIs (LM Studio, OpenAI, Anthropic, Ollama, OpenRouter)
-
-**Builder:** [Chris Barlow](https://github.com/cgbarlow)
-
-**Links:**
-- 🐙 GitHub: [cgbarlow/machine-dream_AG](https://github.com/cgbarlow/machine-dream_AG)
-
----
-
-### ADR (WH(Y) Method)
-
-![ADR](screenshots/adr-why.webp)
-
-An enhanced Architecture Decision Record format for AI-assisted development teams.
-
-**Description:** Addresses structural inconsistency and the conflation of decision rationale with implementation details in existing ADR practice. Provides standardised templates, dependency tracking between decisions, and governance metadata so humans and AI agents can capture and maintain architectural choices with clarity. Language-agnostic and designed to integrate with ADR tooling via options like `adr new --mode=enhanced`.
-
-**Stack:** Markdown specification, language-agnostic templates
-
-**Builder:** [Chris Barlow](https://github.com/cgbarlow)
-
-**Links:**
-- 🐙 GitHub: [cgbarlow/adr](https://github.com/cgbarlow/adr)
+What the agents run on: harnesses, orchestration, memory, and the inference capability a community owns and runs on its own hardware rather than renting per seat.
 
 ---
 
@@ -278,23 +197,6 @@ The professional's alternative to "chat-and-hope" AI agents — a deterministic 
 
 ---
 
-### MNEMOS
-
-![MNEMOS](screenshots/mnemos.png)
-
-A containerised, contract-governed memory and retrieval service for AI-native applications.
-
-**Description:** MNEMOS provides a unified, domain-agnostic memory layer featuring TurboQuant 4-bit compression, forensic PostgreSQL audit ledgers, configurable semantic routing tiers, and a conditional Cross-Encoder reranking lane. It abstracts away brittle embeddings and database glue code into a robust REST API and Python SDK, built primarily as an appliance for autonomous agents requiring persistent, scalable cognition.
-
-**Stack:** Python, FastAPI, Qdrant, PostgreSQL, pgvector, Docker, CUDA, BAAI/bge-base
-
-**Builder:** MNEMOS Contributor
-
-**Links:**
-- 🐙 GitHub: [ro0TuX777/MNEMOSv2](https://github.com/ro0TuX777/MNEMOSv2)
-
----
-
 ### Ready for Agent
 
 ![Ready for Agent](screenshots/ready-for-agent.png)
@@ -313,20 +215,142 @@ Turn ready-labelled GitHub and GitLab issues into reviewed pull requests without
 
 ---
 
-### Protocols
+### MNEMOS
 
-![Protocols](screenshots/protocols.png)
+![MNEMOS](screenshots/mnemos.png)
 
-Engineering protocols for Claude Code /plan mode workflows.
+A containerised, contract-governed memory and retrieval service for AI-native applications.
 
-**Description:** A curated set of non-negotiable engineering standards for Claude Code's plan mode — covering architecture decision records, specifications, test-driven development, feature branches, changelogs, releases, context management, production readiness, agent teams, dependency hygiene, README accuracy, and DRY (plus conditional Svelte frontend security). Vendor them into a project, add via git submodule/subtree, or symlink locally, then reference as `@protocols.md` in your prompts.
+**Description:** MNEMOS provides a unified, domain-agnostic memory layer featuring TurboQuant 4-bit compression, forensic PostgreSQL audit ledgers, configurable semantic routing tiers, and a conditional Cross-Encoder reranking lane. It abstracts away brittle embeddings and database glue code into a robust REST API and Python SDK, built primarily as an appliance for autonomous agents requiring persistent, scalable cognition.
 
-**Stack:** Markdown protocol specifications for Claude Code `/plan` mode
+**Stack:** Python, FastAPI, Qdrant, PostgreSQL, pgvector, Docker, CUDA, BAAI/bge-base
+
+**Builder:** MNEMOS Contributor
+
+**Links:**
+- 🐙 GitHub: [ro0TuX777/MNEMOSv2](https://github.com/ro0TuX777/MNEMOSv2)
+
+---
+
+## Quest-based experiences
+
+Products that use game mechanics to get people to take part and finish. Framing work as a quest rather than a goal changes who joins in and whether they see it through.
+
+---
+
+### Guild Hall
+
+![Guild Hall](screenshots/guild-hall.png)
+
+A quest-based engagement platform that reframes community participation around adventure rather than obligation.
+
+**Description:** Game Masters design quests with objectives, deadlines, and difficulty levels. Community members accept quests from a Bounty Board, submit evidence to complete objectives, and earn points and skill tier progression. Built on the philosophy that "obstacles are expected" on quests, whereas goals frame struggle as failure.
+
+**Stack:** Next.js 15, React 18, TypeScript, Tailwind CSS, shadcn/ui, Supabase, TanStack Query, React Hook Form, Zod, Vitest, Netlify
 
 **Builder:** [Chris Barlow](https://github.com/cgbarlow)
 
 **Links:**
-- 🐙 GitHub: [cgbarlow/protocols](https://github.com/cgbarlow/protocols)
+- 🌐 Live: [guildhall.agentics.org.nz](https://guildhall.agentics.org.nz)
+- 🐙 GitHub: [cgbarlow/guild-hall](https://github.com/cgbarlow/guild-hall)
+
+---
+
+### Campaign Mode
+
+![Campaign Mode](screenshots/campaign-mode.jpg)
+
+Assemble a party of AI advisors with genuinely different perspectives.
+
+**Description:** A plugin system for Claude Desktop and Claude Code CLI that frames collaborative problem-solving as a quest. Six animal-based agents provide distinct viewpoints while three NPC characters (Gandalf, Guardian, Dragon) offer mentorship, progress evaluation, and adversarial testing — helping surface blind spots and stress-test ideas before they matter. Built on the Six Animals framework with Markdown-based persistence for campaign state.
+
+**Stack:** Claude Desktop / Claude Code plugin, Markdown persistence (`.campaign/quest.md`), CC-BY-SA-4.0
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🐙 GitHub: [cgbarlow/campaign-mode](https://github.com/cgbarlow/campaign-mode)
+
+---
+
+## Experimental / R&D
+
+Open questions, tested with working systems. Each project asks something nobody here knew the answer to, and answers it with something that runs.
+
+---
+
+### Machine Dream
+
+![Machine Dream](screenshots/machine-dream.jpg)
+
+A continuous AI cognition platform that lets models learn from experience and consolidate knowledge across sessions.
+
+**Description:** Uses Sudoku as a research testbed to implement a learning loop where AI plays puzzles, makes mistakes, "dreams" (consolidates experiences into patterns), and improves over time — with no external hints or deterministic fallbacks. Implements the GRASP Loop (Generate → Review → Absorb → Synthesize → Persist) with three clustering algorithms: FastCluster, DeepCluster, and LLMCluster.
+
+**Stack:** TypeScript, Node.js 20+, SQLite, OpenAI-compatible APIs (LM Studio, OpenAI, Anthropic, Ollama, OpenRouter)
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🐙 GitHub: [cgbarlow/machine-dream_AG](https://github.com/cgbarlow/machine-dream_AG)
+
+---
+
+## Side quests
+
+Small self-contained builds that exist and run. Afternoon builds and real tools sit side by side, because how quickly an idea becomes a running thing is worth showing.
+
+---
+
+### InsureScan NZ
+
+![InsureScan NZ](screenshots/insurescan.png)
+
+AI-powered home contents valuation for insurance.
+
+**Description:** Identify, value, and catalog your home contents in minutes with AI. Snap photos of items, get instant NZ pricing with GST included, and export professional PDF inventories for insurance claims.
+
+**Stack:** TBD
+
+**Builder:** [Waylon Kenning](https://kenning.co.nz)
+
+**Links:**
+- 🌐 Live: [insurescan.website](https://insurescan.website)
+
+---
+
+### Matariki Stellar Navigator
+
+![Matariki Stellar Navigator](screenshots/matariki.png)
+
+An interactive web experience celebrating Matariki, the Māori New Year.
+
+**Description:** Explore the nine stars of the Matariki cluster through an interactive navigator that pairs traditional stories and cultural significance with a guided star-finding experience. Built with respect for Māori culture and traditions.
+
+**Stack:** JavaScript, HTML, CSS, Netlify
+
+**Builder:** [Chris Barlow](https://github.com/cgbarlow)
+
+**Links:**
+- 🌐 Live: [matarikinav.netlify.app](https://matarikinav.netlify.app)
+- 🐙 GitHub: [cgbarlow/matariki](https://github.com/cgbarlow/matariki)
+
+---
+
+### Sad Salaryman
+
+![Sad Salaryman](screenshots/sad-salaryman.png)
+
+A gamified object scanning app where you earn "burden" as an unpaid intern.
+
+**Description:** Turn your life into a corporate simulation. Scan everyday objects to earn burden, track your progress through corporate ranks, and climb from Unpaid Intern to Contractor.
+
+**Stack:** TBD
+
+**Builder:** [Waylon Kenning](https://kenning.co.nz)
+
+**Links:**
+- 🌐 Live: [sadsalaryman.com](https://sadsalaryman.com)
 
 ---
 
@@ -341,9 +365,15 @@ To add a project to the showcase:
 ### Categories
 
 - **Featured** — Curated highlights, pinned to the top of the gallery. Reserved for projects that exemplify the community; ask a maintainer before adding here.
-- **Built with AI Agents** — Applications, tools, and products built *using* AI agents.
-- **Education** — Frameworks, methodologies, courses, and platforms that teach how to work with AI agents.
-- **Tools for AI Agent Development** — Libraries, frameworks, and infrastructure that *help build* AI agents.
+
+The rest are themes. Pick the one that describes what the project is *for*, not what it is built with:
+
+- **Re-imagining work** — Tools that change what the work is, not just how fast it gets done.
+- **Standards & practice** — How this community works, written down so anyone can pick it up.
+- **Agent infrastructure** — What the agents run on: harnesses, orchestration, memory and inference.
+- **Quest-based experiences** — Game mechanics that get people to take part and finish.
+- **Experimental / R&D** — Open questions, tested with working systems.
+- **Side quests** — Small self-contained builds that exist and run.
 
 ### Entry Format
 
