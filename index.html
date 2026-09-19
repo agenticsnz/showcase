@@ -75,6 +75,9 @@
   }
   .showcase-header .gh-article-excerpt {
     margin-bottom: 0;
+    /* The theme caps an excerpt at its 720px reading column. This one heads a
+       full-width gallery rather than an article, so it runs the same width. */
+    max-width: none;
   }
 
   /* Ghost styles every link with the body text colour; inside the showcase the
