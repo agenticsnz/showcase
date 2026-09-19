@@ -298,18 +298,34 @@
   }
   @media (min-width: 720px) {
     section.category.featured article.card {
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 50% minmax(0, 1fr);
+      grid-template-areas:
+        "head head"
+        "thumb body";
+    }
+    /* A featured entry without a screenshot keeps a single column rather than
+       leaving the image half of the row empty. */
+    section.category.featured article.card:not(:has(.thumb)) {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        "head"
+        "body";
+    }
+    section.category.featured article.card .head {
+      grid-area: head;
+      padding: 1.5rem 1.75rem 0;
     }
     section.category.featured article.card .thumb {
-      flex: 0 0 50%;
+      grid-area: thumb;
       aspect-ratio: auto;
-      align-self: stretch;
     }
     section.category.featured article.card .thumb img {
       object-fit: contain;
     }
     section.category.featured article.card .body {
-      padding: 1.5rem 1.75rem;
+      grid-area: body;
+      padding: 0 1.75rem 1.5rem;
     }
     section.category.featured article.card h3 {
       font-size: 1.4rem;
@@ -426,8 +442,14 @@
     object-fit: cover;
     display: block;
   }
+  article.card .head {
+    order: 2;
+    padding: 1rem 1.1rem 0;
+  }
+  article.card .thumb { order: 1; }
   article.card .body {
-    padding: 1rem 1.1rem 1.1rem;
+    order: 3;
+    padding: 0 1.1rem 1.1rem;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -762,10 +784,12 @@
 
     return `
       <article class="card">
-        ${img}
-        <div class="body">
+        <div class="head">
           <h3>${escapeHtml(project.name)}</h3>
           ${project.tagline ? `<p class="tagline">${renderInline(project.tagline)}</p>` : ''}
+        </div>
+        ${img}
+        <div class="body">
           <dl class="meta">${rows.join('')}</dl>
           ${linkChips ? `<div class="links">${linkChips}</div>` : ''}
         </div>
