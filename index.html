@@ -407,14 +407,15 @@
   }
   .showcase article.card .meta {
     display: grid;
-    gap: 0.64rem;
+    gap: 1.2rem;
     margin: 0 0 1.6rem;
     font-size: 1.44rem;
   }
+  /* Label above its value rather than beside it, so a long stack list or
+     description keeps the full card width on a narrow screen. */
   .showcase article.card .meta .row {
     display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 0.8rem;
+    gap: 0.16rem;
   }
   .showcase article.card .meta .row dt {
     color: var(--muted);
