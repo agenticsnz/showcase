@@ -354,6 +354,23 @@ A gamified object scanning app where you earn "burden" as an unpaid intern.
 
 ---
 
+### Global Data Tracker
+
+![Global Data Tracker](screenshots/global-data-tracker.png)
+
+A free interface for exploring 20 World Bank indicators across 217 countries and areas.
+
+**Description:** Country profiles, historical charts, comparisons and CSV downloads make published country statistics easier to explore, with an optional 3D globe. Definitions, reporting years and original source links help readers interpret comparisons. Built by a solo creator in about six hours with extensive AI assistance; almost all code was AI-written. No account is required. Independent project, not affiliated with the World Bank or United Nations.
+
+**Stack:** Next.js 16, React 19, TypeScript, Three.js, React Three Fiber, Tailwind CSS, AWS
+
+**Builder:** [Ben Portman](https://github.com/ChessShark1000) — Ottawa, Canada
+
+**Links:**
+- 🌐 Live: [globaldatatracker.com](https://globaldatatracker.com/)
+
+---
+
 ## Adding Your Project
 
 To add a project to the showcase:
