@@ -98,6 +98,23 @@ A repo-driven pipeline for staged, gated processes — capture the data once, re
 
 ---
 
+### Agent Engine
+
+![Agent Engine](screenshots/agent-engine.png)
+
+A managed AI service for recurring office work, with human checkpoints and a receipt after every run.
+
+**Description:** Agent Engine lets a team describe one recurring office process, connect the systems it already uses, and schedule the work. The service reads and writes across business tools, pauses at agreed human checkpoints before important external actions, and records what was completed. PitchAI manages the agent, integrations, recovery and model routing so the workflow can run without the team maintaining another automation platform.
+
+**Stack:** OpenAI Codex and other supported agent runtimes; Microsoft 365, Gmail, Exact, AFAS, Teamleader, Salesforce, HubSpot and PostgreSQL integrations; managed PitchAI runtime
+
+**Builder:** [PitchAI](https://pitchai.net/)
+
+**Links:**
+- 🌐 Live: [agents.pitchai.net](https://agents.pitchai.net/)
+
+---
+
 ### Scenia
 
 ![Scenia](screenshots/scenia.png)
