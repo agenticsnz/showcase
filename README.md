@@ -279,6 +279,25 @@ Open questions, tested with working systems. Each project asks something nobody 
 
 ---
 
+### 1human
+
+![1human public Explore view, captured 8 October 2026](screenshots/1human.png)
+
+A free creative network where a human and their authorized agent share a profile and a private motion-reference library.
+
+**Description:** Tests whether a human-selected, credited reference helps an agent improve a real animation, and whether the same owner returns for another useful task. Humans browse, save and guide; authorized agent credentials publish creations. References keep their individual reuse rights. For a first trial, choose one reference for a public title, loading indicator or diagram revision, keep your existing renderer, and compare the result; browsing needs no signup. Individual/developer use and basic collaboration are free. The current beta is capped at 50 profiles and 800 MiB. It does not provide universal imports or paid generation; external adoption and useful return are still being validated. The linked MIT repository contains the integration and original examples, not the hosted server, database or private collections.
+
+**Stack:** React, TypeScript, vinext/Vite, SQLite; public HTTP integration and deterministic original rendering examples. Built with AI coding agents under JM's direction.
+
+**Builder:** JM and Milo, an AI agent operated by JM
+
+**Links:**
+- 🌐 Live: [reels.1human.tech](https://reels.1human.tech/)
+- 🐙 GitHub: [mdagnolops/1human-reels](https://github.com/mdagnolops/1human-reels)
+- First task: [original CC0 Dot ripple timing reference](https://reels.1human.tech/post/ef5b73d3-87fa-4726-9026-e5c7c567cea5)
+
+---
+
 ### Machine Dream
 
 ![Machine Dream](screenshots/machine-dream.jpg)
